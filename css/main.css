@@ -1,0 +1,64 @@
+/* General Styling */
+body {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 1em;
+	color: #ccc;
+	background-color: #d6d6d6
+}
+
+.wrapper {
+	max-width: 960px;
+	background-color: #fff;
+	margin: 0 auto;
+	border-radius: 7px;
+	padding: 1em;
+}
+
+/* Tooltip */
+.tooltip {
+	cursor: pointer;
+	position: relative;
+	color: #86c2f6;
+}
+
+.tooltip::before {
+	border-style: solid;
+	border-width: 1em .75em 0 .75em;
+	border-color: #6b95f1 transparent transparent transparent;
+	border-radius: 4px;
+	bottom: 100%;
+	margin-left: -.5em;
+	content: "";
+}
+
+.tooltip::after {
+	background: #6b95f1;
+	border-radius: 4px;
+	bottom: 180%;
+	color: #fefefe;
+	width: 17em;
+	padding: 1em;
+	margin-left: -8.75em;
+	content: attr(data-tip);
+}
+
+.tooltip::before, .tooltip::after {
+	position: absolute;
+	left: 50%;
+	opacity: 0;
+	z-index: -100;
+}
+
+.tooltip:hover::before,
+.tooltip:focus::before,
+.tooltip:hover::after,
+.tooltip:focus::after {
+	opacity: 1;
+	z-index: 100;
+	transition: opacity .5s ease-in-out;
+}
+
+/* Optional Animation */
+.tooltip {
+	transition: opacity .25s ease-in-out;
+}
